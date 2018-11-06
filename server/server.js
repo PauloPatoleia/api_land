@@ -1,5 +1,5 @@
 const express               = require("Express"),
-      bodyParser            = require("bodyParser")
+      bodyParser            = require("body-parser")
 
 
 const app = express()
@@ -9,6 +9,10 @@ app.use(bodyParser.json());
 
 //support parsing of application/x-www-form-urlencoded post data
 app.use(bodyParser.urlencoded({ extended: true }));
+
+app.get('/apis', (req, res) => {
+    res.send('works')
+})
 
 
 app.listen(3000, () => {
