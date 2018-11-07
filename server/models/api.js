@@ -16,7 +16,6 @@ var Api = mongoose.model('Api', {
   },
   Auth: {
     type: String,
-    required: true,
     trim: true
   },
   HTTPS: {
