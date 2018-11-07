@@ -33,7 +33,8 @@ var Api = mongoose.model('Api', {
     type: String,
     required: true,
     minlength: 1,
-    trim: true
+    trim: true,
+    unique: true
   },
   Category: {
     type: String,
