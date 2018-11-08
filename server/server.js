@@ -8,6 +8,7 @@ const express               = require("Express"),
 const {mongoose} = require('./db/mongoose');
 const {Api} = require('./models/api');
 const {User} = require('./models/user');
+const {Category} = require('./models/category');
 
 // Express setup
 const app = express()
@@ -38,10 +39,12 @@ app.get('/apis/update', (req, res) => {
 
           const body = _.pick(api, ['HTTPS', 'API', 'Description', 'Auth', 'Cors', 'Category']);
 
-          Api.findOneAndUpdate({link: api.link}, {$set: body}, {new: true, upsert: true}, (err, doc) => {
-            if (err) {
-                // error handler
-            }
+          Category.create({ Category: body.Category }, {upsert: true}, function (err, category) {
+           // if (err) console.log(err)
+          });
+
+          Api.findOneAndUpdate({Link: api.Link}, {$set: body}, {new: true, upsert: true}, (err, doc) => {
+            // if (err) console.log(err)
         })
       });
       res.redirect('/entries')
