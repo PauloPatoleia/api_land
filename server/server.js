@@ -27,8 +27,27 @@ app.get('/entries', (req, res) => {
   })
 });
 
+// GET Categories Route
+app.get('/categories', (req, res) => {
+
+  Category.find({}).then((Categories) => {
+
+    var categoriesArr = []
+
+    Categories.forEach((cat) => {
+      categoriesArr.push(cat.Category)
+    })
+
+      res.send(categoriesArr)
+      
+  }, (e) => {
+      res.status(400).send(e);
+
+})
+});
+
 // Database update Route
-app.get('/apis/update', (req, res) => {
+app.get('/update', (req, res) => {
 
   axios.get('https://api.publicapis.org/entries')
   .then(function (response) {
