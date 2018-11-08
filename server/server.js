@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // GET API Route
-app.get('/apis', (req, res) => {
+app.get('/entries', (req, res) => {
 
     Api.find({}).then((apis) => {
         res.send({total: apis.length,
@@ -38,13 +38,13 @@ app.get('/apis/update', (req, res) => {
 
           const body = _.pick(api, ['HTTPS', 'API', 'Description', 'Auth', 'Cors', 'Category']);
 
-          Api.findOneAndUpdate({link: api.link}, {$set: body}, {new: true}, (err, doc) => {
+          Api.findOneAndUpdate({link: api.link}, {$set: body}, {new: true, upsert: true}, (err, doc) => {
             if (err) {
-                console.log(err)
+                // error handler
             }
         })
       });
-      res.redirect('/apis')
+      res.redirect('/entries')
     });
   });
 });
