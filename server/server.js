@@ -18,8 +18,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // GET API Route
 app.get('/entries', (req, res) => {
 
-    Api.find({}).then((apis) => {
-        res.send({total: apis.length,
+    Api.find(req.query).then((apis) => {
+        res.send({found: apis.length,
                 entries: apis})
     }, (e) => {
         res.status(400).send(e);
@@ -30,20 +30,20 @@ app.get('/entries', (req, res) => {
 // GET Categories Route
 app.get('/categories', (req, res) => {
 
-  Category.find({}).then((Categories) => {
+    Category.find({}).then((Categories) => {
 
-    var categoriesArr = []
+      var categoriesArr = []
 
-    Categories.forEach((cat) => {
-      categoriesArr.push(cat.Category)
-    })
+      Categories.forEach((cat) => {
+        categoriesArr.push(cat.Category)
+      })
 
-      res.send(categoriesArr)
-      
-  }, (e) => {
-      res.status(400).send(e);
+        res.send(categoriesArr)
+        
+    }, (e) => {
+        res.status(400).send(e);
 
-})
+  })
 });
 
 // Database update Route
