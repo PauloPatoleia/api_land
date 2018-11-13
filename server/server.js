@@ -18,7 +18,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // GET API Route
 app.get('/entries', (req, res) => {
 
-    Api.find(req.query).then((apis) => {
+  var queryObj = _.pick(req.query, ['Title', 'Description', 'Auth', 'Https', 'Cors', 'Category', "_id"]);
+
+    Api.find(queryObj).then((apis) => {
         res.send({found: apis.length,
                 entries: apis})
     }, (e) => {
