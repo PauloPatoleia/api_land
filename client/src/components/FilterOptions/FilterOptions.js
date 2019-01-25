@@ -1,15 +1,15 @@
 import React from 'react';
 
 
-const FilterOptions = () => {
+const FilterOptions = (props) => {
     return (
-        <div>
+        <div style={{fontFamily:"Iceland", color:"white"}}>
             <select class="form-control" style={{width: "50%", margin: "0 auto"}}>
                 <option>Category</option>
-                <option>1</option>
-                <option>D2</option>
-                <option>D3</option>
-                <option>De4</option>
+                {props.options.map(element => {
+                   return (<option>{element}</option>)
+                })}
+               
             </select>
 
             <div class="container p-4">

@@ -2,9 +2,66 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background-color:#EEEEEE;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#0f2027+0,2197b0+50,0f2027+100 */
 }
 
 #test {
   color: "blue"
+}
+
+.lds-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -75px; /* margin is -0.5 * dimension */
+  margin-top: -75px; 
+  display: inline-block;
+  width: 64px;
+   height: 64px;
+}
+    .lds-ring div {
+      box-sizing: border-box;
+      display: block;
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      margin: 6px;
+      border: 6px solid #fff;
+      border-radius: 50%;
+      animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+      border-color: #fff transparent transparent transparent;
+    }
+    .lds-ring div:nth-child(1) {
+      animation-delay: -0.45s;
+    }
+    .lds-ring div:nth-child(2) {
+      animation-delay: -0.3s;
+    }
+    .lds-ring div:nth-child(3) {
+      animation-delay: -0.15s;
+    }
+    @keyframes lds-ring {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+
+
+.loading {
+  width: 100%;
+  height: auto;
+  bottom: 0px;
+  top: 0px;
+  left: 0;
+  position: absolute;
+  background: #0f2027; /* Old browsers */
+  background: -moz-linear-gradient(-45deg, #0f2027 0%, #2197b0 50%, #0f2027 100%);
+  background: -webkit-linear-gradient(-45deg, #0f2027 0%,#2197b0 50%,#0f2027 100%);
+  background: linear-gradient(135deg, #0f2027 0%,#2197b0 50%,#0f2027 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0f2027', endColorstr='#0f2027',GradientType=1 );
+  background-repeat: no-repeat;
 }

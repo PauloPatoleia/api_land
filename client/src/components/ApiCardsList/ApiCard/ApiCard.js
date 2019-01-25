@@ -13,14 +13,6 @@ import Icon from '@material-ui/core/Icon';
 import DeleteIcon from '@material-ui/icons/Delete';
 import NavigationIcon from '@material-ui/icons/Navigation';
 
-const styles = theme => ({
-    margin: {
-      margin: theme.spacing.unit,
-    },
-    extendedIcon: {
-      marginRight: theme.spacing.unit,
-    },
-  });
 function ApiCard(props) {
   const { classes } = props;
   const bull = <span className="">•</span>;
@@ -32,10 +24,10 @@ function ApiCard(props) {
           HTTPS  OAuth
         </Typography>
         <Typography variant="h5" component="h2">
-            RescueGroups 
+            {props.api.API}
         </Typography>
         <Typography className="" color="textSecondary" gutterBottom>
-        Books published in the Netherlands and Flanders (about 2.5 million), book covers and related data.
+        {props.api.Description}
         </Typography>
       </CardContent>
       <CardActions>
@@ -47,9 +39,5 @@ function ApiCard(props) {
     </Card>
   );
 }
-
-ApiCard.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
 
 export default ApiCard;
