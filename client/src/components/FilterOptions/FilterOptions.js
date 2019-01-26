@@ -4,7 +4,7 @@ import React from 'react';
 const FilterOptions = (props) => {
     return (
         <div style={{fontFamily:"Iceland", color:"white"}}>
-            <select class="form-control" style={{width: "50%", margin: "0 auto"}}>
+            <select onChange={props.categoryOnChange} class="form-control" style={{width: "50%", margin: "0 auto"}}>
                 <option>Category</option>
                 {props.options.map(element => {
                    return (<option>{element}</option>)

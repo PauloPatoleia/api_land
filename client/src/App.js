@@ -14,28 +14,36 @@ class App extends Component {
     Category: "Animals",
     HTTPS: "",
     Cors:"",
-    Auth: "",
-    Categories: ["example"],
+    Auth: "", 
+    Categories: [],
     Results: []
   }
 
+
+  //THIS!!!
   categoryOnChange = (e) => {
-      console.log("category has been changed")
+ //   console.log(e.target.value);
+      this.fetch(e.target.value)
+      console.log("category change")
   }
 
   componentDidMount() {
-    this.fetch();
+        this.fetch(this.state.Category)
+        this.fetchCategories()
   }
 
-  fetch() {
+  fetchCategories() {
     $.getJSON('categories')
-      .then(res => {
-        this.setState({ Categories: res })
-      })
+    .then(res => {
+      this.setState({ Categories: res })
+    })
+  }
 
-      $.getJSON('entries', {Category: this.state.Category})
+  fetch(category) {
+      $.getJSON('entries', {Category: category})
       .then(res => {
-        this.setState({ Results: res.entries })
+        this.setState({ Category: category,
+                        Results: res.entries })
       })
   }
 
@@ -56,7 +64,7 @@ class App extends Component {
         backgroundRepeat: "no-repeat"}} className="App pt-1">
           <Navbar></Navbar>
           <Header></Header>
-          <FilterOptions options={this.state.Categories}></FilterOptions>
+          <FilterOptions categoryOnChange={this.categoryOnChange} options={this.state.Categories}></FilterOptions>
           <ApiCardsList apis={this.state.Results}></ApiCardsList>
       </div>
     );  
