@@ -31,7 +31,7 @@ function ApiCard(props) {
         </Typography>
       </CardContent>
       <CardActions>
-      <Button style={{borderColor: "#2196f3", color: "#2196f3"}} variant="outlined" color="primary" className="">
+      <Button href={props.api.Link} style={{borderColor: "#2196f3", color: "#2196f3"}} variant="outlined" color="primary" className="">
         Learn more
       </Button>
 

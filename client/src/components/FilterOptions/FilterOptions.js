@@ -7,7 +7,7 @@ const FilterOptions = (props) => {
             <select onChange={props.categoryOnChange} class="form-control" style={{width: "50%", margin: "0 auto"}}>
                 <option>Category</option>
                 {props.options.map(element => {
-                   return (<option>{element}</option>)
+                   return (<option key={element}>{element}</option>)
                 })}
                
             </select>

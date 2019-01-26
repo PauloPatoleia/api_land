@@ -20,9 +20,7 @@ class App extends Component {
   }
 
 
-  //THIS!!!
   categoryOnChange = (e) => {
- //   console.log(e.target.value);
       this.fetch(e.target.value)
       console.log("category change")
   }
@@ -51,8 +49,6 @@ class App extends Component {
 
     if(!this.state.Results.length)
             return <Loading></Loading>;
-
-      
 
     return (
       
