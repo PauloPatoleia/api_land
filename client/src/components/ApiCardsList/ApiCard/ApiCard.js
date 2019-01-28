@@ -20,19 +20,40 @@ function ApiCard(props) {
   return (
     <Card className="p-2">
       <CardContent>
-        <Typography className="" color="textSecondary" gutterBottom>
-          HTTPS  OAuth
+       
+        <Typography variant="h5" component="h2" className="mb-2">
+            {props.api.API}    
         </Typography>
-        <Typography variant="h5" component="h2">
-            {props.api.API}
-        </Typography>
-        <Typography className="" color="textSecondary" gutterBottom>
+        <Typography className="" component="p" gutterBottom>
         {props.api.Description}
         </Typography>
+
+        <Typography className="mt-3" color="textSecondary">
+        <i class="fas fa-unlock-alt"></i> HTTPS: {props.api.HTTPS.toString()}
+        </Typography>
+
+        <Typography className="" color="textSecondary">
+        <i class="fas fa-shield-alt"></i> Auth: { props.api.Auth = props.api.Auth == "" ? "None" : props.api.Auth}
+        </Typography>
+
+        <Typography className="" color="textSecondary">
+        <i class="fas fa-file-signature"></i> Cors: {props.api.Cors}
+        </Typography>
+
+        <Typography className="" color="textSecondary">
+        <i class="fas fa-tags"></i> Category: {props.api.Category}
+        </Typography>
+
       </CardContent>
       <CardActions>
+
+        
+       
+       
+        
+
       <Button href={props.api.Link} style={{borderColor: "#2196f3", color: "#2196f3"}} variant="outlined" color="primary" className="">
-        Learn more
+        Visit Website
       </Button>
 
       </CardActions>
